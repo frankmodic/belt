@@ -1,0 +1,56 @@
+<html>
+<head>
+	<title>Black belt</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<h1>Welcome!</h1>
+			<div class="col-md-4">
+				<form class="form-horizontal" action="/login" method="POST">
+					<div class="form-group">
+						<h2>Login</h2>
+						<input type="text" class="form-control" name="email" placeholder="Username (Email)"><br>
+						<input type="password" class="form-control" name="password" placeholder="Password"><br>
+					</div>
+					{% with messages = get_flashed_messages(category_filter=['login_errors']) %}
+						{% if messages %}
+							{% for message in messages %}
+								<p class="warning">{{ message }}</p>
+							{% endfor %}
+					  	{% endif %}
+					{% endwith %}
+					<button type="submit" class="btn btn-success">Login</button>
+				</form>
+			</div>
+			<div class="col-md-3"></div>
+			<div class="col-md-5">
+				<form class="form-horizontal" action="/create" method="POST">
+					<div class="form-group">
+						<h2>Register</h2>
+						<input type="text" class="form-control" name="first_name" placeholder="First Name"><br>
+
+						<input type="text" class="form-control" name="last_name" placeholder="Last Name"><br>
+
+						<input type="email" class="form-control" name="email" placeholder="Email"><br>
+
+						<input type="password" class="form-control" name="password" placeholder="Password"><br>
+
+						<input type="password" class="form-control" name="pw_confirmation" placeholder="Confirm Password"><br>
+					</div>
+					{% with messages = get_flashed_messages(category_filter=['regis_errors']) %}
+						{% if messages %}
+							{% for message in messages %}
+								<p class="warning">{{ message }}</p>
+							{% endfor %}
+					  	{% endif %}
+					{% endwith %}	
+					<button type="submit" class="btn btn-success">Register</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

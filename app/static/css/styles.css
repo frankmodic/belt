@@ -1,0 +1,17 @@
+.green{
+	color: green;
+}
+
+.warning{
+	color: red;
+}
+
+#scroll_box{
+	height: 500px;
+	overflow: scroll;
+}
+
+#scroll_box2{
+	height: 250px;
+	overflow: scroll;
+}
